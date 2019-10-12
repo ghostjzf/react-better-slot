@@ -41,3 +41,21 @@ import AppLayout from "./AppLayout";
     <p slot="footer">这是页尾</p>
 </AppLayout>
 ```
+
+```
+最终效果
+
+<div class="container">
+    <header>
+        <h3 slot="header">这是标题</h3>
+    </header>
+    <main>
+        <div>这是默认Slot显示的部分</div>
+    </main>
+    <footer>
+        <p slot="footer">这是页尾</p>
+    </footer>
+</div>
+```
+
+**注意：如果该组件只会搜集第一个匹配到的没有指定 slot="xxxx"默认 slot 模板, 如果存在多个除第一个将会被忽略并且给出 warning 提示**
