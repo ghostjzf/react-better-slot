@@ -58,4 +58,4 @@ import AppLayout from "./AppLayout";
 </div>
 ```
 
-**注意：如果该组件只会搜集第一个匹配到的没有指定 slot="xxxx"默认 slot 模板, 如果存在多个除第一个将会被忽略并且给出 warning 提示**
+**注意：该组件只会搜集第一个匹配到的没有指定 slot="xxxx"默认 slot 模板, 如果存在多个除第一个将会被忽略并且给出 warning 提示**
