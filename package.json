@@ -1,0 +1,40 @@
+{
+    "name": "react-better-slot",
+    "version": "0.0.1",
+    "description": "用React实现的Vue中Slot的功能",
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "scripts": {
+        "build": "rollup -c"
+    },
+    "keywords": [
+        "slot",
+        "react-slot"
+    ],
+    "author": "",
+    "license": "MIT",
+    "peerDependences": {
+        "react": ">15.0.0",
+        "@types/react": ">16.0.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.6.4",
+        "@babel/core": "^7.6.4",
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
+        "@babel/plugin-proposal-decorators": "^7.6.0",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/plugin-transform-runtime": "^7.6.2",
+        "@babel/preset-env": "^7.6.3",
+        "@babel/preset-react": "^7.6.3",
+        "@types/react": "^16.8.23",
+        "react": "^16.8.6",
+        "rollup": "^1.23.1",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-clear": "^2.0.7",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-postcss": "^2.0.3",
+        "rollup-plugin-typescript2": "^0.24.3",
+        "typescript": "^3.6.4"
+    }
+}
