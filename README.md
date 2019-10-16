@@ -71,4 +71,4 @@ import AppLayout from "./AppLayout";
 ### 说明
 
 -   该组件只会搜集第一个匹配到的没有指定 slot="xxxx"默认 template 模板, 如果存在多个除第一个将会被忽略并且给出 warning 提示
--   必须使用 template 标签作为模板容器\*\*
+-   必须使用 template 标签作为模板容器
