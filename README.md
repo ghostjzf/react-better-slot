@@ -2,6 +2,8 @@
 
 组件参照 Vue 中插槽的功能，基于 React 实现。
 
+[更新日志](https://github.com/ghostjzf/react-better-slot/blob/master/CHANGELOG.md)
+
 ### 使用
 
 ```
@@ -68,5 +70,5 @@ import AppLayout from "./AppLayout";
 
 ### 说明
 
-**1. 该组件只会搜集第一个匹配到的没有指定 slot="xxxx"默认 template 模板, 如果存在多个除第一个将会被忽略并且给出 warning 提示**
-**2. 必须使用 template 标签作为模板容器**
+-   该组件只会搜集第一个匹配到的没有指定 slot="xxxx"默认 template 模板, 如果存在多个除第一个将会被忽略并且给出 warning 提示\*\*
+-   必须使用 template 标签作为模板容器\*\*
