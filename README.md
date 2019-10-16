@@ -8,6 +8,8 @@
 npm install react-better-slot
 ```
 
+### 示例代码
+
 ```
 import React from "react";
 import {withSlot, Slot} from "react-better-slot";
@@ -36,9 +38,15 @@ export default withSlot(AppLayout);
 import AppLayout from "./AppLayout";
 
 <AppLayout>
-    <h3 slot="header">这是标题</h3>
-    <div>这是默认Slot显示的部分</div>
-    <p slot="footer">这是页尾</p>
+    <template slot="header">
+        <h3>这是标题</h3>
+    </template>
+    <template>
+        <div>这是默认Slot显示的部分</div>
+    </template>
+    <template slot="footer">
+        <p>这是页尾</p>
+    </template>
 </AppLayout>
 ```
 
@@ -47,15 +55,18 @@ import AppLayout from "./AppLayout";
 
 <div class="container">
     <header>
-        <h3 slot="header">这是标题</h3>
+        <h3>这是标题</h3>
     </header>
     <main>
         <div>这是默认Slot显示的部分</div>
     </main>
     <footer>
-        <p slot="footer">这是页尾</p>
+        <p>这是页尾</p>
     </footer>
 </div>
 ```
 
-**注意：该组件只会搜集第一个匹配到的没有指定 slot="xxxx"默认 slot 模板, 如果存在多个除第一个将会被忽略并且给出 warning 提示**
+### 说明
+
+**1. 该组件只会搜集第一个匹配到的没有指定 slot="xxxx"默认 template 模板, 如果存在多个除第一个将会被忽略并且给出 warning 提示**
+**2. 必须使用 template 标签作为模板容器**

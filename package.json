@@ -1,6 +1,6 @@
 {
     "name": "react-better-slot",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "用React实现的Vue中Slot的功能",
     "main": "lib/index.js",
     "module": "es/index.js",

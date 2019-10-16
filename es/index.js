@@ -53,7 +53,7 @@ function __rest(s, e) {
 }
 
 function getDisplayName(component) {
-    return component.displayName || component.name || 'component';
+    return component.displayName || component.name || "component";
 }
 var SlotContext = React.createContext({
     requestAddOnRenderer: function () { }
@@ -82,14 +82,24 @@ var withSlot = function (WrappedComponent) {
                     var childrenList = React.Children.toArray(children);
                     var nameChecked_1 = [];
                     childrenList.forEach(function (item) {
-                        var slotName = item.props.slot || '$$default';
-                        // 确保内容唯一性
-                        if (nameChecked_1.findIndex(function (item) { return item === slotName; }) !== -1) {
-                            console.warn("Slot(" + slotName + "), only expected to receive a single $$default slot child");
-                        }
-                        else {
-                            _this.addOnRenderers[slotName] = item;
-                            nameChecked_1.push(slotName);
+                        var itemType = item.type;
+                        if (itemType) {
+                            var slotName_1 = item.props.slot || "$$default";
+                            // 确保内容唯一性
+                            if (nameChecked_1.findIndex(function (item) { return item === slotName_1; }) !==
+                                -1) {
+                                console.warn("Slot(" + slotName_1 + "), only expected to receive a single $$default slot child");
+                            }
+                            else {
+                                if (itemType === "template") {
+                                    _this.addOnRenderers[slotName_1] =
+                                        item.props.children;
+                                    nameChecked_1.push(slotName_1);
+                                }
+                                else {
+                                    console.warn("you'd better to use the <template slot='slotName'>XXX</template>");
+                                }
+                            }
                         }
                     });
                 }

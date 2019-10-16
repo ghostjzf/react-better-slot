@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 function getDisplayName(component) {
-    return component.displayName || component.name || 'component';
+    return component.displayName || component.name || "component";
 }
 
 export const SlotContext = React.createContext({
@@ -10,7 +10,9 @@ export const SlotContext = React.createContext({
 
 const withSlot = WrappedComponent => {
     return class extends Component {
-        static displayName = `SlotProvider(${getDisplayName(WrappedComponent)})`;
+        static displayName = `SlotProvider(${getDisplayName(
+            WrappedComponent
+        )})`;
 
         // 用于缓存每个slot的内容
         addOnRenderers = {};
@@ -32,21 +34,39 @@ const withSlot = WrappedComponent => {
                 let nameChecked: any[] = [];
 
                 childrenList.forEach((item: any) => {
-                    const slotName = item.props.slot || '$$default';
+                    const itemType = item.type;
 
-                    // 确保内容唯一性
-                    if (nameChecked.findIndex(item => item === slotName) !== -1) {
-                        console.warn(`Slot(${slotName}), only expected to receive a single $$default slot child`);
-                    } else {
-                        this.addOnRenderers[slotName] = item;
+                    if (itemType) {
+                        const slotName = item.props.slot || "$$default";
 
-                        nameChecked.push(slotName);
+                        // 确保内容唯一性
+                        if (
+                            nameChecked.findIndex(item => item === slotName) !==
+                            -1
+                        ) {
+                            console.warn(
+                                `Slot(${slotName}), only expected to receive a single $$default slot child`
+                            );
+                        } else {
+                            if (itemType === "template") {
+                                this.addOnRenderers[slotName] =
+                                    item.props.children;
+
+                                nameChecked.push(slotName);
+                            } else {
+                                console.warn(
+                                    "you'd better to use the <template slot='slotName'>XXX</template>"
+                                );
+                            }
+                        }
                     }
                 });
             }
 
             return (
-                <SlotContext.Provider value={{ requestAddOnRenderer: this.requestAddOnRenderer }}>
+                <SlotContext.Provider
+                    value={{ requestAddOnRenderer: this.requestAddOnRenderer }}
+                >
                     <WrappedComponent {...restProps} />
                 </SlotContext.Provider>
             );
